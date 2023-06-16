@@ -9,26 +9,20 @@ contract MyToken is ERC1155, Ownable {
 
     constructor() ERC1155("") {}
 
-    // function setURI(string memory newuri) public onlyOwner {
-    //     _setURI(newuri);
-    // }
-
     function mint(
         address account,
         uint256 id,
-        uint256 amount,
-        bytes memory data
+        uint256 amount
     ) public onlyOwner {
-        _mint(account, id, amount, data);
+        _mint(account, id, amount, "0x00");
     }
 
     function mintBatch(
         address to,
         uint256[] memory ids,
-        uint256[] memory amounts,
-        bytes memory data
+        uint256[] memory amounts
     ) public onlyOwner {
-        _mintBatch(to, ids, amounts, data);
+        _mintBatch(to, ids, amounts, "0x00");
     }
 
     function setTokenURI(uint256 id, string memory _tokenURI) public onlyOwner {
